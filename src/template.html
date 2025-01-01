@@ -4,19 +4,47 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <form>
-      <p>
-        <input
-          type="text"
-          name="location"
-          id="location"
-          placeholder="Enter location"
-        />
-      </p>
-      <button type="submit">Search</button>
-    </form>
+    <div class="form-container">
+      <form>
+        <p>
+          <input
+            type="text"
+            name="location"
+            id="location"
+            placeholder="Enter location"
+          />
+        </p>
+        <button type="submit">Search</button>
+      </form>
+    </div>
+    <div class="data-container">
+      <h1>Charlotte</h1>
+      <div class="data">
+        <div>
+          <p>
+            <img src="./images/location.svg" alt="Location icon" />
+            Charlotte, North Carolina
+          </p>
+          <p>
+            <img src="./images/calendar.svg" alt="Calendar icon" />
+            2025-01-01 | Wednesday
+          </p>
+        </div>
+        <div>
+          <h2>35.2 °C | 73 °F</h2>
+          <img src="" alt="" />
+        </div>
+        <div>
+          <h3>Sunny</h3>
+          <p>Humidity: 37%</p>
+          <p>Precipitation: 0%</p>
+          <p>Wind: 6.1 km/h</p>
+        </div>
+      </div>
+    </div>
     <script src="./js/index.js" defer></script>
   </body>
 </html>
