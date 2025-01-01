@@ -63,3 +63,97 @@ button {
   border: none;
   color: inherit;
 }
+
+/* Content styling */
+:root {
+}
+
+body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 80px;
+}
+
+.form-container,
+.data-container {
+  width: 500px;
+  border-radius: 15px;
+  background-color: #0093e9;
+  background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+}
+
+.form-container,
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container {
+  height: 80px;
+}
+
+form {
+  gap: 10px;
+  width: 100%;
+  padding: 0 30px;
+}
+
+form > p {
+  flex: 1;
+}
+
+button,
+input {
+  padding: 3px 10px 3px;
+}
+
+input {
+  width: 100%;
+  border: none;
+}
+
+.data-container {
+  padding: 30px;
+  height: 400px;
+  color: #fff;
+}
+
+h1 {
+  border-bottom: 1px solid #ffffff5f;
+  padding-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  font-size: 2.2rem;
+  font-weight: 500;
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-top: 10px;
+}
+
+.data div:first-child > p {
+  display: flex;
+  gap: 7px;
+}
+
+.data div:first-child > p:first-child {
+  padding-bottom: 3px;
+}
+
+.data p {
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 1.7rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+}
