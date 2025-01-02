@@ -5,7 +5,7 @@ import {
   convertToCelsius,
   setWeatherIcon,
 } from "./utility.js";
-import fetchWeather from "./weatherController.js";
+import fetchWeather from "./apiController.js";
 
 const updateScreen = (response) => {
   const error = document.querySelector(".error");
