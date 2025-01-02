@@ -77,6 +77,7 @@ const showError = () => {
 const searchWeather = (e) => {
   e.preventDefault();
   const input = document.querySelector("input");
+  if (input.value.length === 0) return;
   fetchWeather(input.value)
     .then((data) => {
       console.log(data);
