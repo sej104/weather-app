@@ -6,6 +6,8 @@ import {
   setWeatherIcon,
 } from "./utility.js";
 import fetchWeather from "./apiController.js";
+import locationIcon from "../images/location.svg";
+import calendarIcon from "../images/calendar.svg";
 
 const updateScreen = (response) => {
   const error = document.querySelector(".error");
@@ -27,12 +29,12 @@ const updateScreen = (response) => {
   const addressDateContainer = createElement("div");
   const address = createElement("p");
   address.append(
-    createImage("./images/location.svg", "Location Icon"),
+    createImage(locationIcon, "Location Icon"),
     document.createTextNode(response.resolvedAddress),
   );
   const date = createElement("p");
   date.append(
-    createImage("./images/calendar.svg", "Calendar Icon"),
+    createImage(calendarIcon, "Calendar Icon"),
     document.createTextNode(response.days[0].datetime),
   );
   addressDateContainer.append(address, date);
