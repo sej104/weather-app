@@ -1,3 +1,13 @@
+import snowIcon from "../images/snow.svg";
+import rainIcon from "../images/rain.svg";
+import fogIcon from "../images/fog.svg";
+import windIcon from "../images/wind.svg";
+import cloudyIcon from "../images/cloudy.svg";
+import partlyCloudyDayIcon from "../images/partly-cloudy-day.svg";
+import partlyCloudyNightIcon from "../images/partly-cloudy-night.svg";
+import clearDayIcon from "../images/clear-day.svg";
+import clearNightIcon from "../images/clear-night.svg";
+
 const createElement = (elementType, textContent) => {
   const element = document.createElement(elementType);
   if (textContent !== null) element.textContent = textContent;
@@ -26,37 +36,31 @@ const setWeatherIcon = (weather) => {
   let img;
   switch (weather) {
     case "snow":
-      img = createImage("./images/snow.svg", "Snow icon");
+      img = createImage(snowIcon, "Snow icon");
       break;
     case "rain":
-      img = createImage("./images/rain.svg", "Rain icon");
+      img = createImage(rainIcon, "Rain icon");
       break;
     case "fog":
-      img = createImage("./images/fog.svg", "Fog icon");
+      img = createImage(fogIcon, "Fog icon");
       break;
     case "wind":
-      img = createImage("./images/wind.svg", "Wind icon");
+      img = createImage(windIcon, "Wind icon");
       break;
     case "cloudy":
-      img = createImage("./images/cloudy.svg", "Cloudy icon");
+      img = createImage(cloudyIcon, "Cloudy icon");
       break;
     case "partly-cloudy-day":
-      img = createImage(
-        "./images/partly-cloudy-day.svg",
-        "Partly cloudy day icon",
-      );
+      img = createImage(partlyCloudyDayIcon, "Partly cloudy day icon");
       break;
     case "partly-cloudy-night":
-      img = createImage(
-        "./images/partly-cloudy-night.svg",
-        "Partly cloudy night icon",
-      );
+      img = createImage(partlyCloudyNightIcon, "Partly cloudy night icon");
       break;
     case "clear-day":
-      img = createImage("./images/clear-day.svg", "Sun icon");
+      img = createImage(clearDayIcon, "Sun icon");
       break;
     case "clear-night":
-      img = createImage("./images/clear-night.svg", "Moon icon");
+      img = createImage(clearNightIcon, "Moon icon");
       break;
     default:
       console.log("Unable to set icon");
