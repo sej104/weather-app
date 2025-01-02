@@ -4,6 +4,7 @@ import {
   formatAddress,
   convertToCelsius,
   setWeatherIcon,
+  processResponse,
 } from "./utility.js";
 import fetchWeather from "./apiController.js";
 import locationIcon from "../images/location.svg";
@@ -22,7 +23,7 @@ const updateScreen = (response) => {
     document.body.append(dataContainer);
   }
 
-  const city = createElement("h1", formatAddress(response.resolvedAddress));
+  const city = createElement("h1", formatAddress(response.address));
   const data = createElement("div");
   data.classList.add("data");
 
@@ -30,37 +31,31 @@ const updateScreen = (response) => {
   const address = createElement("p");
   address.append(
     createImage(locationIcon, "Location Icon"),
-    document.createTextNode(response.resolvedAddress),
+    document.createTextNode(response.address),
   );
   const date = createElement("p");
   date.append(
     createImage(calendarIcon, "Calendar Icon"),
-    document.createTextNode(response.days[0].datetime),
+    document.createTextNode(response.date),
   );
   addressDateContainer.append(address, date);
 
   const temperatureContainer = createElement("div");
   const temperature = createElement(
     "h2",
-    `${convertToCelsius(response.currentConditions.temp)} °C | ${response.currentConditions.temp} °F`,
+    `${convertToCelsius(response.temperature)} °C | ${response.temperature} °F`,
   );
-  const weatherIcon = setWeatherIcon(response.currentConditions.icon);
+  const weatherIcon = setWeatherIcon(response.icon);
   temperatureContainer.append(temperature, weatherIcon);
 
   const conditionsContainer = createElement("div");
-  const conditions = createElement("h3", response.currentConditions.conditions);
-  const humidity = createElement(
-    "p",
-    `Humidity: ${response.currentConditions.humidity}%`,
-  );
+  const conditions = createElement("h3", response.conditions);
+  const humidity = createElement("p", `Humidity: ${response.humidity}%`);
   const precipitation = createElement(
     "p",
-    `Precipitation: ${response.currentConditions.precip}%`,
+    `Precipitation: ${response.precipitation}%`,
   );
-  const windSpeed = createElement(
-    "p",
-    `Wind: ${response.currentConditions.windspeed} mph`,
-  );
+  const windSpeed = createElement("p", `Wind: ${response.windSpeed} mph`);
   conditionsContainer.append(conditions, humidity, precipitation, windSpeed);
 
   data.append(addressDateContainer, temperatureContainer, conditionsContainer);
@@ -85,7 +80,7 @@ const searchWeather = (e) => {
   fetchWeather(input.value)
     .then((data) => {
       console.log(data);
-      updateScreen(data);
+      updateScreen(processResponse(data));
     })
     .catch((error) => {
       console.log(error);

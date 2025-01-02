@@ -68,10 +68,25 @@ const setWeatherIcon = (weather) => {
   return img;
 };
 
+const processResponse = (response) => {
+  const result = {
+    address: response.resolvedAddress,
+    date: response.days[0].datetime,
+    temperature: response.currentConditions.temp,
+    icon: response.currentConditions.icon,
+    conditions: response.currentConditions.conditions,
+    humidity: response.currentConditions.humidity,
+    precipitation: response.currentConditions.precip,
+    windSpeed: response.currentConditions.windspeed,
+  };
+  return result;
+};
+
 export {
   createElement,
   createImage,
   formatAddress,
   convertToCelsius,
   setWeatherIcon,
+  processResponse,
 };
